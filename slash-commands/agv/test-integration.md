@@ -28,7 +28,7 @@ Delegar a criação dos testes:
 Delegue para o subagent "agv-integrator-tester" a implementação dos testes de integração para a fase T$1.
 
 O integrator-tester deve entregar:
-- Testes pytest para todos os cenários definidos
+- Testes automatizados para todos os cenários definidos
 - Fixtures adequadas para setup/teardown
 - Validação de consistência multi-tenant
 - Testes de interação entre módulos do grupo

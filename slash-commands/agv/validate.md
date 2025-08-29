@@ -14,7 +14,7 @@ Verificar se a implementação atual segue a arquitetura definida:
 
 **Estrutura de Diretórios:**
 - Comparar estrutura atual com a proposta no Blueprint
-- Verificar se apps Django estão organizados corretamente
+- Verificar se módulos/aplicações estão organizados corretamente
 - Validar estrutura do frontend (features, shared, entities)
 
 **Separação de Camadas:**
@@ -47,13 +47,13 @@ Executar verificações de qualidade:
 **Padrões de Código:**
 ```bash
 # Executar linting no backend
-ruff check backend/src/ --output-format=text
+<lint_command> <backend_path> --output-format=text
 
-# Verificar formatação Python
-black --check backend/src/
+# Verificar formatação
+<format_command> --check <backend_path>
 
 # Linting do frontend (se aplicável)
-# eslint frontend/src/ --format=table
+# <frontend_lint_command> <frontend_path> --format=table
 ```
 
 **Testes:**
@@ -100,7 +100,7 @@ Verificar implementação dos requisitos não-funcionais:
 
 ### 🏗️ **Estrutural**
 - Organização de diretórios e arquivos
-- Estrutura de apps Django
+- Estrutura de módulos/aplicações
 - Arquitetura de camadas
 
 ### 🔒 **Contratos**
@@ -109,7 +109,7 @@ Verificar implementação dos requisitos não-funcionais:
 - APIs e endpoints
 
 ### 📏 **Qualidade**
-- Padrões de código (PEP 8, ESLint)
+- Padrões de código da stack
 - Cobertura de testes
 - Documentação
 

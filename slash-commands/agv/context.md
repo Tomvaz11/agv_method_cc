@@ -21,7 +21,7 @@ O analyzer deve retornar:
 - Justificativa de por que cada seção é relevante
 
 ### Modelos de Dados Relacionados:
-- Modelos Django necessários para o alvo
+- Modelos de dados necessários para o alvo
 - Dependências entre modelos
 - Contratos de interface envolvidos
 

@@ -89,12 +89,13 @@ class AGVQualityValidator:
             if stdlib_imports:
                 self.passed_checks.append("[OK] Imports organizados encontrados")
         
-        # 4. Executar ruff se disponível
-        self._run_ruff_check()
+        # 4. Executar linter se disponível (adapte comando conforme projeto)
+        self._run_linter_check()
         
         # 5. Verificar multi-tenancy em models
-        if 'models.py' in str(self.file_path) or 'from django.db import models' in self.file_content:
-            self._validate_django_models()
+        # Verificações específicas para modelos de dados (adapte conforme framework)
+        if 'models.py' in str(self.file_path) or 'models' in self.file_content:
+            self._validate_orm_models()
     
     def _validate_typescript_file(self):
         """Validações específicas para arquivos TypeScript/React"""
@@ -116,16 +117,16 @@ class AGVQualityValidator:
         # 3. Executar ESLint se disponível
         self._run_eslint_check()
     
-    def _validate_django_models(self):
-        """Validações específicas para models Django"""
+    def _validate_orm_models(self):
+        """Validações específicas para models do ORM (adapte conforme framework)"""
         
         # Verificar BaseTenantModel ou campo tenant
         if 'BaseTenantModel' in self.file_content:
             self.passed_checks.append("[OK] BaseTenantModel usado para multi-tenancy")
         elif 'tenant =' in self.file_content and 'ForeignKey' in self.file_content:
             self.passed_checks.append("[OK] Campo tenant encontrado")
-        elif 'class ' in self.file_content and 'models.Model' in self.file_content:
-            self.warnings.append("Model Django sem implementação multi-tenant aparente")
+        elif 'class ' in self.file_content:
+            self.warnings.append("Model sem implementação multi-tenant aparente (adapte validação conforme framework)")
         
         # Verificar campos de auditoria
         if 'created_at' in self.file_content and 'updated_at' in self.file_content:
@@ -157,25 +158,25 @@ class AGVQualityValidator:
         # 4. Verificar encoding UTF-8 (implícito na leitura bem-sucedida)
         self.passed_checks.append("[OK] Encoding UTF-8 válido")
     
-    def _run_ruff_check(self):
-        """Executa ruff check se disponível"""
+    def _run_linter_check(self):
+        """Executa linter check se disponível (adapte comando conforme stack)"""
         try:
             result = subprocess.run(
-                ['ruff', 'check', str(self.file_path), '--output-format=json'],
+                ['linter_command', 'check', str(self.file_path), '--output-format=json'],
                 capture_output=True,
                 text=True,
                 timeout=10
             )
             
             if result.returncode == 0:
-                self.passed_checks.append("[OK] Ruff check passou")
+                self.passed_checks.append("[OK] Linter check passou")
             else:
-                # Parse dos erros do ruff (formato JSON)
+                # Parse dos erros do linter (adapte formato conforme ferramenta)
                 if result.stdout:
-                    self.warnings.append("Ruff encontrou issues - ver output completo")
+                    self.warnings.append("Linter encontrou issues - ver output completo")
                 
         except (subprocess.TimeoutExpired, FileNotFoundError):
-            self.warnings.append("Ruff não disponível ou timeout - validação manual necessária")
+            self.warnings.append("Linter não disponível ou timeout - validação manual necessária")
     
     def _run_eslint_check(self):
         """Executa ESLint se disponível"""

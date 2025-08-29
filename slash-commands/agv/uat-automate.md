@@ -5,7 +5,7 @@ allowed_tools: ["Task", "Read", "Write", "Edit"]
 
 # AGV UAT Automate - Automação de Cenários UAT
 
-Converte cenários de teste manuais (UAT) para testes automatizados de backend usando pytest, interagindo diretamente com os serviços de aplicação.
+Converte cenários de teste manuais (UAT) para testes automatizados de backend usando framework de teste apropriado da stack, interagindo diretamente com os serviços de aplicação.
 
 ## Processo de Automação de UAT
 
@@ -24,12 +24,12 @@ O analyzer deve mapear:
 - Dependências de infraestrutura para mocking
 
 ### Etapa 2: Tradução para Testes Automatizados
-Converter cenários para código pytest:
+Converter cenários para testes automatizados:
 
 Delegue para o subagent "agv-uat-translator" a criação de testes automatizados.
 
 O UAT-Translator deve entregar:
-- Scripts pytest para cada cenário UAT
+- Scripts de teste para cada cenário UAT
 - Fixtures para setup de pré-condições
 - Mocks/Fakes para dependências de infraestrutura
 - Instanciação correta dos serviços de aplicação
@@ -76,7 +76,7 @@ Estruturar os testes automatizados:
 - Documentação executável dos fluxos
 
 ## Resultado Esperado
-- Testes pytest para todos os cenários UAT
+- Testes automatizados para todos os cenários UAT
 - Cobertura automatizada dos fluxos críticos
 - Validação de backend sem dependência de UI
 - Integração pronta para pipeline de CI/CD

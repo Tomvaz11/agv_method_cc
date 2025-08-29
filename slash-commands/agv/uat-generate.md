@@ -25,7 +25,7 @@ Criar cenários de teste manuais:
 Delegue para o subagent "agv-uat-generator" a criação de 8-12 cenários de teste UAT baseados no Blueprint.
 
 O UAT-Generator deve entregar cenários com:
-- ID padronizado: UAT_IABANK_[XXX]
+- ID padronizado: UAT_[NOME_PROJETO]_[XXX]
 - Título claro e conciso  
 - Fluxo testado (ex: "Login → Dashboard → Novo Empréstimo")
 - Componentes do Blueprint envolvidos

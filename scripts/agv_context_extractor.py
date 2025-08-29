@@ -65,51 +65,52 @@ class AGVContextExtractor:
     def _map_target_dependencies(self, target_num: int) -> Dict[str, List[str]]:
         """Mapeia alvo para seus módulos e dependências"""
         
-        # Mapeamento baseado na ordem de implementação IABANK
+        # TODO: Este mapeamento deve ser extraído automaticamente da Ordem de Implementação
+        # Para projetos específicos, adapte os módulos e modelos conforme seu Blueprint
         target_map = {
-            # Core e Multi-tenancy (1-4)
-            1: {'modules': ['iabank.core'], 'models': ['Tenant', 'BaseTenantModel'], 'sections': ['3.1']},
-            2: {'modules': ['iabank.core'], 'models': ['Tenant'], 'sections': ['settings.py']},
-            3: {'modules': ['iabank.core'], 'models': ['Tenant'], 'sections': ['middleware']},
-            4: {'modules': ['iabank.core'], 'models': ['Tenant'], 'sections': ['middleware']},
+            # Core e Multi-tenancy (1-4) - ADAPTE para seus módulos específicos
+            1: {'modules': ['projeto.core'], 'models': ['Tenant', 'BaseTenantModel'], 'sections': ['3.1']},
+            2: {'modules': ['projeto.core'], 'models': ['Tenant'], 'sections': ['settings.py']},
+            3: {'modules': ['projeto.core'], 'models': ['Tenant'], 'sections': ['middleware']},
+            4: {'modules': ['projeto.core'], 'models': ['Tenant'], 'sections': ['middleware']},
             
             # Users e Auth (5-8)
-            5: {'modules': ['iabank.users', 'iabank.core'], 'models': ['User', 'Tenant'], 'sections': ['3.1', 'auth']},
-            6: {'modules': ['iabank.users'], 'models': ['User'], 'sections': ['settings.py']},
-            7: {'modules': ['iabank.users'], 'models': ['User'], 'sections': ['auth', 'JWT']},
-            8: {'modules': ['iabank.users'], 'models': ['User'], 'sections': ['urls', 'auth']},
+            5: {'modules': ['projeto.users', 'projeto.core'], 'models': ['User', 'Tenant'], 'sections': ['3.1', 'auth']},
+            6: {'modules': ['projeto.users'], 'models': ['User'], 'sections': ['settings.py']},
+            7: {'modules': ['projeto.users'], 'models': ['User'], 'sections': ['auth', 'JWT']},
+            8: {'modules': ['projeto.users'], 'models': ['User'], 'sections': ['urls', 'auth']},
             
             # Customers (9-17)
-            9: {'modules': ['iabank.customers', 'iabank.core'], 'models': ['Customer', 'BaseTenantModel'], 'sections': ['3.1']},
-            10: {'modules': ['iabank.customers'], 'models': ['Customer'], 'sections': ['settings.py']},
-            11: {'modules': ['iabank.customers'], 'models': ['Customer'], 'sections': ['factories', 'tests']},
-            12: {'modules': ['iabank.customers'], 'models': ['Customer'], 'sections': ['3.1.1', 'DTOs']},
-            13: {'modules': ['iabank.customers'], 'models': ['Customer'], 'sections': ['views', 'CRUD']},
-            14: {'modules': ['iabank.customers'], 'models': ['Customer'], 'sections': ['urls']},
-            15: {'modules': ['iabank.customers'], 'models': ['Customer'], 'sections': ['urls']},
+            9: {'modules': ['projeto.customers', 'projeto.core'], 'models': ['Customer', 'BaseTenantModel'], 'sections': ['3.1']},
+            10: {'modules': ['projeto.customers'], 'models': ['Customer'], 'sections': ['settings.py']},
+            11: {'modules': ['projeto.customers'], 'models': ['Customer'], 'sections': ['factories', 'tests']},
+            12: {'modules': ['projeto.customers'], 'models': ['Customer'], 'sections': ['3.1.1', 'DTOs']},
+            13: {'modules': ['projeto.customers'], 'models': ['Customer'], 'sections': ['views', 'CRUD']},
+            14: {'modules': ['projeto.customers'], 'models': ['Customer'], 'sections': ['urls']},
+            15: {'modules': ['projeto.customers'], 'models': ['Customer'], 'sections': ['urls']},
             16: {'modules': ['DRF'], 'models': [], 'sections': ['18']},
             17: {'modules': ['DRF'], 'models': [], 'sections': ['18']},
             
             # Operations (18-26)
-            18: {'modules': ['iabank.operations', 'iabank.customers'], 'models': ['Loan', 'Installment', 'Consultant'], 'sections': ['3.1']},
-            19: {'modules': ['iabank.operations'], 'models': ['Loan'], 'sections': ['settings.py']},
-            20: {'modules': ['iabank.operations'], 'models': ['Loan'], 'sections': ['factories', 'tests']},
-            21: {'modules': ['iabank.operations'], 'models': ['Loan'], 'sections': ['5', 'repositories']},
-            22: {'modules': ['iabank.operations'], 'models': ['Loan'], 'sections': ['5', 'services']},
-            23: {'modules': ['iabank.operations'], 'models': ['Loan'], 'sections': ['3.1.1', 'DTOs']},
-            24: {'modules': ['iabank.operations'], 'models': ['Loan'], 'sections': ['views']},
-            25: {'modules': ['iabank.operations'], 'models': ['Loan'], 'sections': ['urls']},
-            26: {'modules': ['iabank.operations'], 'models': ['Loan'], 'sections': ['urls']},
+            18: {'modules': ['projeto.operations', 'projeto.customers'], 'models': ['Loan', 'Installment', 'Consultant'], 'sections': ['3.1']},
+            19: {'modules': ['projeto.operations'], 'models': ['Loan'], 'sections': ['settings.py']},
+            20: {'modules': ['projeto.operations'], 'models': ['Loan'], 'sections': ['factories', 'tests']},
+            21: {'modules': ['projeto.operations'], 'models': ['Loan'], 'sections': ['5', 'repositories']},
+            22: {'modules': ['projeto.operations'], 'models': ['Loan'], 'sections': ['5', 'services']},
+            23: {'modules': ['projeto.operations'], 'models': ['Loan'], 'sections': ['3.1.1', 'DTOs']},
+            24: {'modules': ['projeto.operations'], 'models': ['Loan'], 'sections': ['views']},
+            25: {'modules': ['projeto.operations'], 'models': ['Loan'], 'sections': ['urls']},
+            26: {'modules': ['projeto.operations'], 'models': ['Loan'], 'sections': ['urls']},
             
             # Finance (27-31)
-            27: {'modules': ['iabank.finance'], 'models': ['BankAccount', 'FinancialTransaction'], 'sections': ['3.1']},
-            28: {'modules': ['iabank.finance'], 'models': ['BankAccount'], 'sections': ['settings.py']},
-            29: {'modules': ['iabank.finance'], 'models': ['BankAccount'], 'sections': ['factories']},
-            30: {'modules': ['iabank.finance'], 'models': ['BankAccount'], 'sections': ['CRUD']},
-            31: {'modules': ['iabank.finance', 'iabank.operations'], 'models': ['FinancialTransaction', 'Loan'], 'sections': ['5', 'integration']},
+            27: {'modules': ['projeto.finance'], 'models': ['BankAccount', 'FinancialTransaction'], 'sections': ['3.1']},
+            28: {'modules': ['projeto.finance'], 'models': ['BankAccount'], 'sections': ['settings.py']},
+            29: {'modules': ['projeto.finance'], 'models': ['BankAccount'], 'sections': ['factories']},
+            30: {'modules': ['projeto.finance'], 'models': ['BankAccount'], 'sections': ['CRUD']},
+            31: {'modules': ['projeto.finance', 'projeto.operations'], 'models': ['FinancialTransaction', 'Loan'], 'sections': ['5', 'integration']},
             
             # Observability (32-35)
-            32: {'modules': ['iabank.core'], 'models': [], 'sections': ['seed_data', 'factories']},
+            32: {'modules': ['projeto.core'], 'models': [], 'sections': ['seed_data', 'factories']},
             33: {'modules': ['observability'], 'models': [], 'sections': ['14']},
             34: {'modules': ['observability'], 'models': [], 'sections': ['14', 'metrics']},
             35: {'modules': ['observability'], 'models': [], 'sections': ['14', 'health']},
@@ -210,7 +211,7 @@ class AGVContextExtractor:
         
         # Mapear módulos para possíveis arquivos de código
         for module in target_deps.get('modules', []):
-            if 'iabank' in module:
+            if 'projeto' in module:
                 app_name = module.split('.')[-1]
                 dependencies.append(f"- {app_name}/models.py (se existir)")
                 dependencies.append(f"- {app_name}/serializers.py (se existir)")
@@ -220,7 +221,7 @@ class AGVContextExtractor:
                 dependencies.append("- Estrutura de diretórios do frontend")
                 dependencies.append("- Componentes e hooks relevantes")
             elif module == 'DRF':
-                dependencies.append("- Configurações do Django REST Framework")
+                dependencies.append("- Configurações do Framework de API REST")
                 dependencies.append("- Exception handlers customizados")
         
         return '\n'.join(dependencies) if dependencies else "Nenhuma dependência de código específica"

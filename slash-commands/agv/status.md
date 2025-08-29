@@ -19,7 +19,7 @@ Vou ler a Ordem de Implementação para entender todos os alvos definidos:
 Verificar quais componentes já foram implementados:
 
 **Backend:**
-- Estrutura de apps Django (core, users, customers, operations, finance)
+- Estrutura de módulos/aplicações (core, users, customers, operations, finance)
 - Modelos implementados em cada app
 - Views, serializers e URLs
 - Testes unitários e de integração

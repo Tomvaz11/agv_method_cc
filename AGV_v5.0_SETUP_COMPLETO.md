@@ -15,7 +15,7 @@
 - **agv-uat-translator** - Tradutor UAT para testes automatizados
 - **agv-evolucionista** - Engenheiro de manutenção F7
 
-#### ✅ **Slash Commands (8 comandos)**
+#### ✅ **Slash Commands (9 comandos)**
 - `/agv:scaffold` - Setup do projeto (Alvo 0)
 - `/agv:implement <alvo>` - Implementação com contexto otimizado
 - `/agv:test-integration <fase>` - Testes de integração T1-T8
@@ -31,7 +31,7 @@
 - `scripts/inject_focused_context.py` - Injeção de contexto via hooks
 - `scripts/validate_agv_quality.py` - Validação de qualidade de código
 
-#### ✅ **Sistema de Hooks (10 hooks)**
+#### ✅ **Sistema de Hooks (10 hooks configurados)**
 - Extração automática de contexto
 - Injeção antes de subagents
 - Validação pós-criação de arquivos
@@ -45,13 +45,15 @@ Você precisa criar manualmente os 7 subagents usando `/agents:new`:
 
 ```bash
 /agents:new agv-context-analyzer
-# Cole a configuração completa fornecida anteriormente
+# Cole a configuração do arquivo AGV_SUBAGENTS_CONFIGURACOES_COMPLETAS.md
 
 /agents:new agv-scaffolder  
-# Cole a configuração completa fornecida anteriormente
+# Cole a configuração do arquivo AGV_SUBAGENTS_CONFIGURACOES_COMPLETAS.md
 
 # ... repetir para todos os 7 agentes
 ```
+
+**📋 Configurações Completas:** Todas as configurações atualizadas estão disponíveis em `AGV_SUBAGENTS_CONFIGURACOES_COMPLETAS.md` - agentes baseados 95% nos prompts originais validados (F4-Scaffolder v1.0, F4-ImplementadorMestre v8.2, F4.1-IntegradorTester v1.8, F5-Gerador UAT v1.4, F5.1-Transformador UAT v1.1, F7-Evolucionista v1.2) com universalização para qualquer stack tecnológica.
 
 ### **Etapa 2: Workflow Completo de Uso**
 
@@ -93,8 +95,8 @@ Você precisa criar manualmente os 7 subagents usando `/agents:new`:
 
 #### **🔧 Manutenção e Evolução**
 ```bash
-/agv:evolve "Performance lenta em queries de empréstimos"
-/agv:evolve "Adicionar validação de CPF duplicado"
+/agv:evolve "Performance lenta nas queries principais"
+/agv:evolve "Adicionar validação de campo único"
 ```
 
 #### **📊 Utilitários de Controle**
@@ -183,7 +185,7 @@ agv_method_CC/
 3. **Validar redução de contexto** - `/agv:context 12` (5 min)
 
 ### **Curto prazo (esta semana):**
-1. **Implementar projeto IABANK completo** usando AGV v5.0
+1. **Implementar projeto completo** usando AGV v5.0
 2. **Documentar melhorias observadas** vs método anterior
 3. **Refinar scripts** baseado na experiência prática
 

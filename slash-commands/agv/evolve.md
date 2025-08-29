@@ -87,8 +87,8 @@ Se não houver conflitos arquiteturais, implementar:
 - Manutenção da integridade do design
 
 **Qualidade de Código:**
-- Padrões existentes mantidos (ruff, black, etc.)
-- Docstrings atualizadas (PEP 257)
+- Padrões existentes mantidos (linting, formatação, etc.)
+- Docstrings atualizadas seguindo convenções da stack
 - Código limpo e profissional
 - Consistência com codebase existente
 
