@@ -9,8 +9,21 @@ Executa validação abrangente da codebase atual contra o Blueprint Arquitetural
 
 ## Processo de Validação
 
-### Etapa 1: Validação Arquitetural
-Verificar se a implementação atual segue a arquitetura definida:
+### Etapa 1: Validação Automática de Conformidade com Blueprint
+Executar validação automática usando o novo validador:
+
+```bash
+python scripts/validate_blueprint_conformity.py
+```
+
+Este script irá:
+- Analisar o Blueprint e extrair especificações estruturadas
+- Analisar a implementação atual do código
+- Comparar Blueprint vs Implementação
+- Gerar score de conformidade e relatório detalhado
+
+### Etapa 2: Validação Arquitetural Manual  
+Verificar aspectos que requerem validação manual:
 
 **Estrutura de Diretórios:**
 - Comparar estrutura atual com a proposta no Blueprint
@@ -146,7 +159,14 @@ Verificar implementação dos requisitos não-funcionais:
 - Impacto estimado de cada correção
 
 ## Resultado
-- Relatório completo de conformidade
-- Lista de todos os desvios encontrados
-- Plano de ação para correções
-- Score geral de conformidade com Blueprint
+- **Score de Conformidade (0-100%)** calculado automaticamente
+- **Relatório JSON detalhado** salvo em `blueprint_conformity_report.json`
+- **Categorização de problemas** por severidade (CRITICAL, HIGH, MEDIUM, LOW)
+- **Recomendações específicas** para cada problema identificado
+- **Validação de qualidade** complementar via `validate_agv_quality.py`
+
+### 📊 Interpretação do Score:
+- **80-100%**: 🎉 EXCELENTE - Alta conformidade 
+- **60-79%**: ⚠️ BOM - Conformidade aceitável
+- **40-59%**: 🔧 REGULAR - Múltiplos problemas
+- **0-39%**: 🚨 CRÍTICO - Revisão urgente necessária

@@ -26,10 +26,11 @@
 - `/agv:status` - Status do projeto vs Ordem
 - `/agv:validate` - Validação de conformidade
 
-#### ✅ **Scripts de Automação (3 scripts)**
+#### ✅ **Scripts de Automação (4 scripts)**
 - `scripts/agv_context_extractor.py` - Extração inteligente de contexto
 - `scripts/inject_focused_context.py` - Injeção de contexto via hooks
 - `scripts/validate_agv_quality.py` - Validação de qualidade de código
+- `scripts/validate_blueprint_conformity.py` - Validação automática de conformidade com Blueprint
 
 #### ✅ **Sistema de Hooks (10 hooks configurados)**
 - Extração automática de contexto
@@ -103,7 +104,7 @@ Você precisa criar manualmente os 7 subagents usando `/agents:new`:
 ```bash
 /agv:status           # Progresso atual vs Ordem
 /agv:context 12       # Ver contexto que seria extraído  
-/agv:validate         # Conformidade com Blueprint
+/agv:validate         # Conformidade com Blueprint (validação automática)
 ```
 
 ## 🎯 **Principais Benefícios Alcançados**
@@ -141,7 +142,8 @@ agv_method_CC/
 ├── scripts/
 │   ├── agv_context_extractor.py      # ✅ Extração inteligente
 │   ├── inject_focused_context.py     # ✅ Injeção de contexto
-│   └── validate_agv_quality.py       # ✅ Validação qualidade
+│   ├── validate_agv_quality.py       # ✅ Validação qualidade
+│   └── validate_blueprint_conformity.py  # ✅ Conformidade Blueprint
 └── AGV_v5.0_SETUP_COMPLETO.md        # ✅ Este guia
 ```
 
@@ -175,6 +177,8 @@ agv_method_CC/
 
 # 6. Validar conformidade final
 /agv:validate
+# → Score de conformidade: 85% (BOM - Conformidade aceitável)
+# → Relatório detalhado salvo em blueprint_conformity_report.json
 ```
 
 ## ⚡ **Próximos Passos Recomendados**

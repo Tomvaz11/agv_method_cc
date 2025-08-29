@@ -101,8 +101,12 @@
       "match": {
         "prompt_contains": "/agv:validate"
       },
-      "command": "echo 'Iniciando validação completa de conformidade AGV...'",
-      "description": "Preparação para validação de conformidade"
+      "command": "python scripts/validate_blueprint_conformity.py",
+      "description": "Executa validação automática de conformidade com Blueprint",
+      "env": {
+        "BLUEPRINT_PATH": "PROJETO/Output_BluePrint_Arquitetural_Tocrisna_v1.0_ORIGINAL.md",
+        "PROJECT_PATH": "."
+      }
     },
     {
       "event": "SessionEnd",
