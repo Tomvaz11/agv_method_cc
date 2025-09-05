@@ -1,0 +1,79 @@
+# Pre-commit hooks configuration for IABANK
+# This ensures code quality and consistency across the project
+
+repos:
+  # Python Backend Hooks
+  - repo: https://github.com/psf/black
+    rev: 23.3.0
+    hooks:
+      - id: black
+        files: ^backend/
+        language_version: python3.10
+
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.0.270
+    hooks:
+      - id: ruff
+        files: ^backend/
+        args: [--fix, --exit-non-zero-on-fix]
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.3.0
+    hooks:
+      - id: mypy
+        files: ^backend/
+        additional_dependencies: [
+          django-stubs,
+          djangorestframework-stubs,
+          types-redis,
+          types-requests,
+        ]
+
+  # Frontend TypeScript/JavaScript Hooks
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v2.7.1
+    hooks:
+      - id: prettier
+        files: ^frontend/
+        types_or: [javascript, jsx, ts, tsx, json, css, scss, html]
+
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: v8.44.0
+    hooks:
+      - id: eslint
+        files: ^frontend/.*\.(js|jsx|ts|tsx)$
+        additional_dependencies:
+          - eslint@8.44.0
+          - '@typescript-eslint/eslint-plugin@5.57.0'
+          - '@typescript-eslint/parser@5.57.0'
+
+  # General Hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: check-json
+        exclude: ^frontend/tsconfig.*\.json$
+      - id: pretty-format-json
+        args: [--autofix, --no-sort-keys]
+        exclude: ^frontend/tsconfig.*\.json$
+
+  # Docker and Configuration
+  - repo: https://github.com/hadolint/hadolint
+    rev: v2.12.0
+    hooks:
+      - id: hadolint
+        files: Dockerfile.*
+
+  # Security Checks
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.4.0
+    hooks:
+      - id: detect-secrets
+        args: ['--baseline', '.secrets.baseline']
+        exclude: ^(\.env\.example|.*\.lock)$

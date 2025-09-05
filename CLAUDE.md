@@ -1,0 +1,8 @@
+- **SEMPRE** responder em português brasileiro (PT-BR)
+- **SEMPRE** ler completamente TODOS os requisitos antes de começar
+- **SEMPRE** use o TodoWrite para organizar a tarefa desde o inicio
+- **SEMPRE** validar resultado final contra requisitos originais
+- **NUNCA** confirmar conclusão sem verificação sistemática
+- Antes de finalizar qualquer implementação, faça as seguintes perguntas de confirmação a si mesmo:
+  - Você tem absoluta certeza de que executou **todas** as instruções iniciais exatamente conforme solicitado?
+  - Para garantirmos com precisão, que tudo está correto e feito conforme solicitado, realize agora uma **análise minuciosa**, linha por linha, de todo o conteúdo
