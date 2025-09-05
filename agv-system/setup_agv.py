@@ -98,7 +98,7 @@ def setup_agv_system():
     
     print("\n🎉 Sistema AGV v5.0 configurado com sucesso!")
     print("\nComandos disponíveis:")
-    print("  agv-validate <blueprint.md> scaffold")
+    print("  agv-validate <blueprint.md> baseline-foundation")
     print("  agv-validate <blueprint.md> target --target-number 3")
     print("  agv-context <blueprint.md> --target 3")
     print("\nPython imports:")

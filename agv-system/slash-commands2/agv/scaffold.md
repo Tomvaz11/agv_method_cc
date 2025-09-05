@@ -5,7 +5,7 @@ allowed_tools: ["Task", "Write", "LS", "Bash"]
 
 # AGV Scaffold + Validação Automática
 
-Executa o Alvo 0 (Setup Profissional) seguido de **validação automática profunda** linha por linha vs Blueprint.
+Executa o Alvo 0 (Foundation DNA) seguido de **validação automática profunda** linha por linha vs Blueprint.
 
 ## Fluxo Automatizado com Validação
 
@@ -35,9 +35,9 @@ Este comando irá:
 - Gerar um `agv-system/agv_system/validate_scaffold.py` de NÍVEL PROFISSIONAL (67+ validações)
 - Incluir validações por categoria: STRUCTURE, CONTENT, MODELS, DEPENDENCIES, API
 
-### Etapa 1.3: Delegação para AGV-Scaffolder
+### Etapa 1.3: Delegação para AGV-BaselineFoundation
 
-Após gerar o validador customizado, delego a criação completa do scaffolding:
+Após gerar o validador customizado, delego a criação completa do Foundation DNA:
 
 Delegue para o subagent "agv-scaffolder" a tarefa de executar o Alvo 0 completo baseado no:
 
@@ -77,15 +77,16 @@ python agv-system/scripts/agv-validate BLUEPRINT_ARQUITETURAL.md
 
 ### Executar Scaffold
 
-Após gerar o validador customizado, delegue para o subagent "agv-scaffolder" a tarefa de executar o Alvo 0 completo baseado no Blueprint Arquitetural.
+Após gerar o validador customizado, delegue para o subagent "agv-scaffolder" (AGV-BaselineFoundation) a tarefa de executar o Alvo 0 completo baseado no Blueprint Arquitetural.
 
-## Resultado Esperado do Scaffold
+## Resultado Esperado do Foundation DNA
 
 - Estrutura completa de diretórios
 - Todos os arquivos de configuração
-- Arquivos de código com docstrings (SEM lógica de negócio)
-- Estrutura de testes preparada
-- Instruções de setup para o coordenador
+- Classes base funcionais (BaseModel, BaseSerializer, etc.)
+- Exemplo funcional mínimo que demonstre os padrões
+- Estrutura de testes com exemplo funcional
+- Aplicação executável ao final
 
 ### Executar Validação Profunda
 
