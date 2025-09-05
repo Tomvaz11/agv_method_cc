@@ -4,7 +4,20 @@
       "WebSearch",
       "WebFetch(domain:github.com)",
       "Bash(git remote get-url:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(xcopy:*)",
+      "Bash(python agv-system/scripts/agv-validate:*)",
+      "Bash(python:*)",
+      "Bash(mkdir:*)",
+      "Bash(grep:*)",
+      "Bash(chmod:*)",
+      "Bash(cp:*)",
+      "Bash(dir:*)",
+      "Bash(tree:*)",
+      "Bash(for app in core customers finance operations users)",
+      "Bash(do echo \"=== $app ===\")",
+      "Bash(ls:*)",
+      "Bash(done)"
     ],
     "deny": [],
     "ask": []

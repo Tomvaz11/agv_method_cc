@@ -1,0 +1,335 @@
+{
+  "total_checks": 37,
+  "passed_checks": 28,
+  "failed_checks": 9,
+  "issues": [
+    {
+      "file_path": "iabank\\backend\\src\\iabank\\customers\\tests\\factories.py",
+      "issue_type": "missing_test_file",
+      "description": "Arquivo de teste obrigatório não encontrado: factories.py",
+      "expected": "Arquivo factories.py deve existir em tests/ do app customers",
+      "actual": "Arquivo não existe",
+      "severity": "HIGH"
+    },
+    {
+      "file_path": "iabank\\backend\\src\\iabank\\operations\\tests\\factories.py",
+      "issue_type": "missing_test_file",
+      "description": "Arquivo de teste obrigatório não encontrado: factories.py",
+      "expected": "Arquivo factories.py deve existir em tests/ do app operations",
+      "actual": "Arquivo não existe",
+      "severity": "HIGH"
+    },
+    {
+      "file_path": "iabank\\backend\\src\\iabank\\finance\\tests\\factories.py",
+      "issue_type": "missing_test_file",
+      "description": "Arquivo de teste obrigatório não encontrado: factories.py",
+      "expected": "Arquivo factories.py deve existir em tests/ do app finance",
+      "actual": "Arquivo não existe",
+      "severity": "HIGH"
+    },
+    {
+      "file_path": "iabank\\backend\\src\\iabank\\core\\tests\\factories.py",
+      "issue_type": "missing_test_file",
+      "description": "Arquivo de teste obrigatório não encontrado: factories.py",
+      "expected": "Arquivo factories.py deve existir em tests/ do app core",
+      "actual": "Arquivo não existe",
+      "severity": "HIGH"
+    },
+    {
+      "file_path": "iabank\\frontend\\package.json",
+      "issue_type": "missing_required_dependency",
+      "description": "Dependência obrigatória não encontrada: zod",
+      "expected": "zod deve estar em dependencies (Validação schemas)",
+      "actual": "zod não está em dependencies",
+      "severity": "HIGH"
+    },
+    {
+      "file_path": "iabank\\frontend\\package.json",
+      "issue_type": "missing_required_dependency",
+      "description": "Dependência obrigatória não encontrada: @hookform/resolvers",
+      "expected": "@hookform/resolvers deve estar em dependencies (Resolvers para react-hook-form)",
+      "actual": "@hookform/resolvers não está em dependencies",
+      "severity": "HIGH"
+    },
+    {
+      "file_path": "iabank\\backend\\pyproject.toml",
+      "issue_type": "missing_backend_dependency",
+      "description": "Dependência backend não encontrada: djangorestframework-simplejwt",
+      "expected": "djangorestframework-simplejwt deve estar nas dependências (JWT authentication)",
+      "actual": "djangorestframework-simplejwt não encontrado",
+      "severity": "MEDIUM"
+    },
+    {
+      "file_path": "iabank\\backend\\pyproject.toml",
+      "issue_type": "missing_backend_dependency",
+      "description": "Dependência backend não encontrada: django-allauth",
+      "expected": "django-allauth deve estar nas dependências (Sistema autenticação completo (opcional))",
+      "actual": "django-allauth não encontrado",
+      "severity": "MEDIUM"
+    },
+    {
+      "file_path": "iabank\\backend\\pyproject.toml",
+      "issue_type": "missing_backend_dependency",
+      "description": "Dependência backend não encontrada: gunicorn",
+      "expected": "gunicorn deve estar nas dependências (WSGI server para produção)",
+      "actual": "gunicorn não encontrado",
+      "severity": "MEDIUM"
+    },
+    {
+      "file_path": "iabank\\backend\\pyproject.toml",
+      "issue_type": "missing_backend_dependency",
+      "description": "Dependência backend não encontrada: whitenoise",
+      "expected": "whitenoise deve estar nas dependências (Servir arquivos estáticos)",
+      "actual": "whitenoise não encontrado",
+      "severity": "MEDIUM"
+    },
+    {
+      "file_path": "iabank\\backend\\pyproject.toml",
+      "issue_type": "missing_backend_dependency",
+      "description": "Dependência backend não encontrada: python-decouple",
+      "expected": "python-decouple deve estar nas dependências (Gerenciamento de configurações)",
+      "actual": "python-decouple não encontrado",
+      "severity": "MEDIUM"
+    },
+    {
+      "file_path": "iabank\\backend\\pyproject.toml",
+      "issue_type": "missing_backend_dependency",
+      "description": "Dependência backend não encontrada: django-debug-toolbar",
+      "expected": "django-debug-toolbar deve estar nas dependências (Debug toolbar para desenvolvimento)",
+      "actual": "django-debug-toolbar não encontrado",
+      "severity": "MEDIUM"
+    },
+    {
+      "file_path": "iabank\\backend\\pyproject.toml",
+      "issue_type": "missing_backend_dependency",
+      "description": "Dependência backend não encontrada: drf-spectacular",
+      "expected": "drf-spectacular deve estar nas dependências (Documentação automática OpenAPI/Swagger)",
+      "actual": "drf-spectacular não encontrado",
+      "severity": "MEDIUM"
+    },
+    {
+      "file_path": "iabank\\backend\\pyproject.toml",
+      "issue_type": "missing_project_section",
+      "description": "Seção [project] não encontrada em pyproject.toml",
+      "expected": "pyproject.toml deve ter seção [project] com metadados",
+      "actual": "Seção [project] não existe",
+      "severity": "HIGH"
+    },
+    {
+      "file_path": "iabank\\frontend\\tsconfig.json",
+      "issue_type": "invalid_tsconfig_json",
+      "description": "tsconfig.json contém JSON inválido",
+      "expected": "JSON válido",
+      "actual": "Erro de sintaxe JSON",
+      "severity": "HIGH"
+    },
+    {
+      "file_path": "iabank\\frontend/src/App.tsx",
+      "issue_type": "missing_source_file",
+      "description": "Arquivo fonte obrigatório não encontrado: App component",
+      "expected": "Arquivo App component deve existir (Componente raiz da aplicação)",
+      "actual": "Arquivo não existe",
+      "severity": "HIGH"
+    },
+    {
+      "file_path": "iabank\\frontend\\src",
+      "issue_type": "incomplete_src_structure",
+      "description": "Estrutura src/ incompleta - faltam diretórios: components, hooks, utils, types",
+      "expected": "Diretório src/ deve ter estrutura organizada (components, pages, hooks, utils, types)",
+      "actual": "Faltam diretórios: components, hooks, utils, types",
+      "severity": "MEDIUM"
+    },
+    {
+      "file_path": "docker-compose.yml",
+      "issue_type": "missing_docker_config",
+      "description": "Arquivo Docker obrigatório não encontrado: docker-compose",
+      "expected": "Arquivo docker-compose deve existir (Orquestração de containers)",
+      "actual": "Arquivo não existe",
+      "severity": "HIGH"
+    },
+    {
+      "file_path": "core/migrations/",
+      "issue_type": "missing_migrations_directory",
+      "description": "Diretório migrations não encontrado para app core",
+      "expected": "App core deve ter diretório migrations/",
+      "actual": "Diretório migrations não existe",
+      "severity": "MEDIUM"
+    },
+    {
+      "file_path": "customers/migrations/",
+      "issue_type": "missing_migrations_directory",
+      "description": "Diretório migrations não encontrado para app customers",
+      "expected": "App customers deve ter diretório migrations/",
+      "actual": "Diretório migrations não existe",
+      "severity": "MEDIUM"
+    },
+    {
+      "file_path": "finance/migrations/",
+      "issue_type": "missing_migrations_directory",
+      "description": "Diretório migrations não encontrado para app finance",
+      "expected": "App finance deve ter diretório migrations/",
+      "actual": "Diretório migrations não existe",
+      "severity": "MEDIUM"
+    },
+    {
+      "file_path": "operations/migrations/",
+      "issue_type": "missing_migrations_directory",
+      "description": "Diretório migrations não encontrado para app operations",
+      "expected": "App operations deve ter diretório migrations/",
+      "actual": "Diretório migrations não existe",
+      "severity": "MEDIUM"
+    },
+    {
+      "file_path": "iabank\\frontend\\src\\shared\\config",
+      "issue_type": "incomplete_environment_configs",
+      "description": "Configurações de ambiente incompletas - faltam: development.py, production.py, testing.py",
+      "expected": "Deve ter configurações para development, production, testing",
+      "actual": "Faltam: development.py, production.py, testing.py",
+      "severity": "MEDIUM"
+    },
+    {
+      "file_path": ".editorconfig",
+      "issue_type": "no_ide_configuration",
+      "description": "Nenhuma configuração IDE encontrada",
+      "expected": "Ao menos .editorconfig deve existir para formatação consistente",
+      "actual": "Nenhum arquivo de configuração IDE encontrado",
+      "severity": "MEDIUM"
+    },
+    {
+      "file_path": "iabank\\backend\\src\\iabank\\settings.py",
+      "issue_type": "missing_security_settings",
+      "description": "Configurações de segurança Django faltantes: 4 itens",
+      "expected": "Deve incluir configurações de segurança críticas",
+      "actual": "Faltam: SECURE_SSL_REDIRECT (Redirecionamento SSL), SECURE_BROWSER_XSS_FILTER (Filtro XSS), SECURE_CONTENT_TYPE_NOSNIFF (Content Type Nosniff)...",
+      "severity": "HIGH"
+    },
+    {
+      "file_path": "iabank\\backend\\src\\iabank\\settings.py",
+      "issue_type": "missing_security_settings",
+      "description": "Configurações de segurança Django faltantes: 4 itens",
+      "expected": "Deve incluir configurações de segurança críticas",
+      "actual": "Faltam: SECURE_SSL_REDIRECT (Redirecionamento SSL), SECURE_BROWSER_XSS_FILTER (Filtro XSS), SECURE_CONTENT_TYPE_NOSNIFF (Content Type Nosniff)...",
+      "severity": "HIGH"
+    },
+    {
+      "file_path": "iabank\\backend\\src\\iabank\\settings.py",
+      "issue_type": "missing_security_settings",
+      "description": "Configurações de segurança Django faltantes: 4 itens",
+      "expected": "Deve incluir configurações de segurança críticas",
+      "actual": "Faltam: SECURE_SSL_REDIRECT (Redirecionamento SSL), SECURE_BROWSER_XSS_FILTER (Filtro XSS), SECURE_CONTENT_TYPE_NOSNIFF (Content Type Nosniff)...",
+      "severity": "HIGH"
+    },
+    {
+      "file_path": "iabank\\backend\\src\\iabank\\core\\models.py",
+      "issue_type": "excessive_implementation_for_scaffold",
+      "description": "Arquivo models.py contém código além da docstring",
+      "expected": "APENAS docstring conforme agv-scaffolder - ZERO implementação",
+      "actual": "Arquivo contém 57 linhas de código proibido",
+      "severity": "HIGH"
+    },
+    {
+      "file_path": "iabank\\backend\\src\\iabank\\customers\\models.py",
+      "issue_type": "excessive_implementation_for_scaffold",
+      "description": "Arquivo models.py contém código além da docstring",
+      "expected": "APENAS docstring conforme agv-scaffolder - ZERO implementação",
+      "actual": "Arquivo contém 51 linhas de código proibido",
+      "severity": "HIGH"
+    },
+    {
+      "file_path": "iabank\\backend\\src\\iabank\\finance\\models.py",
+      "issue_type": "excessive_implementation_for_scaffold",
+      "description": "Arquivo models.py contém código além da docstring",
+      "expected": "APENAS docstring conforme agv-scaffolder - ZERO implementação",
+      "actual": "Arquivo contém 190 linhas de código proibido",
+      "severity": "HIGH"
+    },
+    {
+      "file_path": "iabank\\backend\\src\\iabank\\operations\\models.py",
+      "issue_type": "excessive_implementation_for_scaffold",
+      "description": "Arquivo models.py contém código além da docstring",
+      "expected": "APENAS docstring conforme agv-scaffolder - ZERO implementação",
+      "actual": "Arquivo contém 148 linhas de código proibido",
+      "severity": "HIGH"
+    },
+    {
+      "file_path": "iabank\\backend\\src\\iabank\\core\\views.py",
+      "issue_type": "excessive_implementation_for_scaffold",
+      "description": "Arquivo views.py contém código além da docstring",
+      "expected": "APENAS docstring conforme agv-scaffolder - ZERO implementação",
+      "actual": "Arquivo contém 40 linhas de código proibido",
+      "severity": "HIGH"
+    },
+    {
+      "file_path": "iabank\\backend\\src\\iabank\\customers\\views.py",
+      "issue_type": "excessive_implementation_for_scaffold",
+      "description": "Arquivo views.py contém código além da docstring",
+      "expected": "APENAS docstring conforme agv-scaffolder - ZERO implementação",
+      "actual": "Arquivo contém 35 linhas de código proibido",
+      "severity": "HIGH"
+    },
+    {
+      "file_path": "iabank\\backend\\src\\iabank\\finance\\views.py",
+      "issue_type": "excessive_implementation_for_scaffold",
+      "description": "Arquivo views.py contém código além da docstring",
+      "expected": "APENAS docstring conforme agv-scaffolder - ZERO implementação",
+      "actual": "Arquivo contém 168 linhas de código proibido",
+      "severity": "HIGH"
+    },
+    {
+      "file_path": "iabank\\backend\\src\\iabank\\operations\\views.py",
+      "issue_type": "excessive_implementation_for_scaffold",
+      "description": "Arquivo views.py contém código além da docstring",
+      "expected": "APENAS docstring conforme agv-scaffolder - ZERO implementação",
+      "actual": "Arquivo contém 114 linhas de código proibido",
+      "severity": "HIGH"
+    },
+    {
+      "file_path": "iabank\\backend\\src\\iabank\\users\\views.py",
+      "issue_type": "excessive_implementation_for_scaffold",
+      "description": "Arquivo views.py contém código além da docstring",
+      "expected": "APENAS docstring conforme agv-scaffolder - ZERO implementação",
+      "actual": "Arquivo contém 140 linhas de código proibido",
+      "severity": "HIGH"
+    },
+    {
+      "file_path": "iabank\\backend\\src\\iabank\\customers\\serializers.py",
+      "issue_type": "excessive_implementation_for_scaffold",
+      "description": "Arquivo serializers.py contém código além da docstring",
+      "expected": "APENAS docstring conforme agv-scaffolder - ZERO implementação",
+      "actual": "Arquivo contém 89 linhas de código proibido",
+      "severity": "HIGH"
+    },
+    {
+      "file_path": "iabank\\backend\\src\\iabank\\finance\\serializers.py",
+      "issue_type": "excessive_implementation_for_scaffold",
+      "description": "Arquivo serializers.py contém código além da docstring",
+      "expected": "APENAS docstring conforme agv-scaffolder - ZERO implementação",
+      "actual": "Arquivo contém 167 linhas de código proibido",
+      "severity": "HIGH"
+    },
+    {
+      "file_path": "iabank\\backend\\src\\iabank\\operations\\serializers.py",
+      "issue_type": "excessive_implementation_for_scaffold",
+      "description": "Arquivo serializers.py contém código além da docstring",
+      "expected": "APENAS docstring conforme agv-scaffolder - ZERO implementação",
+      "actual": "Arquivo contém 137 linhas de código proibido",
+      "severity": "HIGH"
+    },
+    {
+      "file_path": "iabank\\backend\\src\\iabank\\users\\serializers.py",
+      "issue_type": "excessive_implementation_for_scaffold",
+      "description": "Arquivo serializers.py contém código além da docstring",
+      "expected": "APENAS docstring conforme agv-scaffolder - ZERO implementação",
+      "actual": "Arquivo contém 120 linhas de código proibido",
+      "severity": "HIGH"
+    }
+  ],
+  "score": 37.84,
+  "categories": {
+    "STRUCTURE": 13,
+    "CONTENT": 17,
+    "MODELS": 0,
+    "DEPENDENCIES": 10,
+    "API": 0
+  }
+}
