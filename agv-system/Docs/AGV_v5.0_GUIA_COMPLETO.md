@@ -43,36 +43,41 @@ O AGV v5.0 é um **sistema completo de desenvolvimento assistido por IA** que co
 
 ## ⚙️ **SETUP INICIAL**
 
-### **Etapa 1: Criar os 7 Subagents**
+### **Etapa 1: Verificar Pré-requisitos**
 
-No Claude Code, crie manualmente os subagents usando `/agents:new`:
+**IMPORTANTE**: O Claude Code precisa do `ripgrep` instalado para funcionamento dos comandos:
 
+**Windows:**
 ```bash
-/agents:new agv-context-analyzer
-# Cole a configuração do AGV_SUBAGENTS_CONFIGURACOES_COMPLETAS.md
-
-/agents:new agv-scaffolder
-# Cole a configuração do AGV_SUBAGENTS_CONFIGURACOES_COMPLETAS.md
-
-/agents:new agv-implementor
-# Cole a configuração do AGV_SUBAGENTS_CONFIGURACOES_COMPLETAS.md
-
-/agents:new agv-integrator-tester
-# Cole a configuração do AGV_SUBAGENTS_CONFIGURACOES_COMPLETAS.md
-
-/agents:new agv-uat-generator
-# Cole a configuração do AGV_SUBAGENTS_CONFIGURACOES_COMPLETAS.md
-
-/agents:new agv-uat-translator
-# Cole a configuração do AGV_SUBAGENTS_CONFIGURACOES_COMPLETAS.md
-
-/agents:new agv-evolucionista
-# Cole a configuração do AGV_SUBAGENTS_CONFIGURACOES_COMPLETAS.md
+winget install BurntSushi.ripgrep.MSVC
 ```
 
-📋 **Configurações Completas**: Todas estão no arquivo `AGV_SUBAGENTS_CONFIGURACOES_COMPLETAS.md`
+**macOS:**
+```bash
+brew install ripgrep
+```
 
-### **Etapa 2: Verificar Sistema**
+**Ubuntu/Debian:**
+```bash
+sudo apt install ripgrep
+```
+
+### **Etapa 2: Sistema Pré-Configurado**
+
+✅ **BOAS NOTÍCIAS**: Os subagents e comandos já estão pré-configurados!
+
+**Subagents disponíveis em `.claude/agents/`:**
+- agv-context-analyzer, agv-scaffolder, agv-implementor
+- agv-integrator-tester, agv-uat-generator, agv-uat-translator  
+- agv-evolucionista
+
+**Comandos disponíveis em `.claude/commands/agv/`:**
+- context, implement, scaffold, status, evolve
+- test-integration, uat-generate, uat-translate, validate
+
+📋 **Manual de Configuração**: Para recriar manualmente, consulte `AGV_SUBAGENTS_CONFIGURACOES_COMPLETAS.md`
+
+### **Etapa 3: Verificar Sistema**
 
 ```bash
 /agv:validate    # Verifica conformidade com Blueprint
@@ -125,7 +130,7 @@ No Claude Code, crie manualmente os subagents usando `/agents:new`:
 
 ```bash
 /agv:uat-generate      # Gera cenários manuais UAT
-/agv:uat-automate     # Converte para testes automatizados
+/agv:uat-translate    # Converte para testes automatizados
 ```
 
 ### **🔧 PASSO 5: Manutenção e Evolução**
@@ -180,7 +185,7 @@ Subagents são **versões especializadas do Claude** criadas no Claude Code. Cad
 #### **6. 🔄 AGV-UAT-Translator**
 - **Função**: Converte UAT manuais em testes automatizados
 - **Diferencial**: Testa backend sem UI
-- **Uso**: `/agv:uat-automate` traduz cenários
+- **Uso**: `/agv:uat-translate` traduz cenários
 
 #### **7. 🔧 AGV-Evolucionista**
 - **Função**: Manutenção, bugs, refatorações, features
@@ -202,7 +207,7 @@ Subagents são **versões especializadas do Claude** criadas no Claude Code. Cad
 # Testes e Qualidade  
 /agv:test-integration <TX> # Testes T1-TN nas paradas
 /agv:uat-generate         # Cenários UAT manuais
-/agv:uat-automate         # Testes automatizados
+/agv:uat-translate        # Testes automatizados (UAT → backend)
 
 # Manutenção e Debug
 /agv:evolve "<tarefa>"    # Evolução pós-implementação

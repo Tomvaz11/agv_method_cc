@@ -17,7 +17,8 @@
       "Bash(for app in core customers finance operations users)",
       "Bash(do echo \"=== $app ===\")",
       "Bash(ls:*)",
-      "Bash(done)"
+      "Bash(done)",
+      "WebFetch(domain:www.anthropic.com)"
     ],
     "deny": [],
     "ask": []
