@@ -1,7 +1,7 @@
 ---
 name: agv-context-analyzer
 description: Use este agente quando você precisar extrair contexto específico de um Blueprint AGV extenso para implementar um alvo particular. Exemplos: <example>Context: O usuário tem um Blueprint AGV de 1000+ linhas e quer implementar apenas o alvo 15 relacionado ao sistema de autenticação.\nuser: "Preciso implementar o alvo 15 do meu Blueprint AGV, mas o arquivo é muito extenso"\nassistant: "Vou usar o agv-context-analyzer para extrair apenas o contexto relevante para o alvo 15"</example> <example>Context: O usuário está trabalhando em múltiplos alvos do Blueprint e quer focar apenas nas dependências do alvo atual.\nuser: "Tenho o Blueprint completo mas quero focar só no que é necessário para o alvo 8"\nassistant: "Vou usar o agv-context-analyzer para filtrar o Blueprint e extrair apenas o contexto necessário para o alvo 8"</example>
-tools: Read, Grep, Glob
+tools: Read, Write, Grep, Glob
 model: sonnet
 ---
 

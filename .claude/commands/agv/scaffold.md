@@ -1,11 +1,27 @@
 ---
-description: "Executa Alvo 0 com validação automática profunda integrada"
+description: "Executa Alvo com validação automática (usa Blueprint completo por padrão, --context para contexto extraído)"
 allowed_tools: ["Task", "Write", "LS", "Bash"]
 ---
 
 # AGV Scaffold + Validação Automática
 
-Executa o Alvo 0 (Foundation DNA) seguido de **validação automática profunda** linha por linha vs Blueprint.
+Executa um Alvo específico (ex: Foundation DNA) seguido de **validação automática profunda** linha por linha vs Blueprint.
+
+## Uso
+
+**Comando Básico (Blueprint Completo - Padrão):**
+```bash
+/agv:scaffold 0    # Usa iabank/BLUEPRINT_ARQUITETURAL.md (~1088 linhas)
+```
+
+**Comando com Contexto Extraído:**
+```bash
+/agv:scaffold 0 --context    # Usa contextos-extraidos/contexto-alvo-0.md (~200 linhas)
+```
+
+## Argumentos
+- **Número do Alvo** (obrigatório): `0`, `1`, `2`, etc.
+- **`--context`** (opcional): Usa contexto extraído ao invés do Blueprint completo
 
 ## Fluxo Automatizado com Validação
 
@@ -27,13 +43,41 @@ O sistema agora usa ValidatorGenerator v3.0 com arquitetura modular avançada:
 - **Profiles Configuráveis**: development (65%), production (85%), architecture_review (95%)
 - **Integração Total**: Automação completa pós-scaffold sem intervenção manual
 
-### Etapa 1.3: Delegação para AGV-BaselineFoundation
+### Etapa 1.3: Seleção de Fonte de Informação
 
-Após gerar o validador customizado, delego a criação completa do Foundation DNA:
+**Parâmetro de Controle de Fonte:**
 
-Delegue para o subagent "agv-scaffolder" a tarefa de executar o Alvo 0 completo baseado no:
+- **`/agv:scaffold X`** (padrão): Usa Blueprint Completo (`iabank/BLUEPRINT_ARQUITETURAL.md`)
+- **`/agv:scaffold X --context`**: Usa Contexto Extraído (`contextos-extraidos/contexto-alvo-X.md`)
 
-- Blueprint: BLUEPRINT_ARQUITETURAL.md
+### Etapa 1.4: Contagem de Linhas e Delegação
+
+Primeiro, conte as linhas dos arquivos para informar o usuário:
+
+Execute os seguintes comandos para contar as linhas dos arquivos:
+
+```bash
+# Contar linhas do Blueprint (sempre)
+BLUEPRINT_LINES=$(wc -l iabank/BLUEPRINT_ARQUITETURAL.md | cut -d' ' -f1)
+
+# Se comando contém --context, contar também o contexto extraído
+if [argumentos contêm "--context"]; then
+    CONTEXT_LINES=$(wc -l contextos-extraidos/contexto-alvo-$1.md | cut -d' ' -f1)
+fi
+```
+
+**Se comando NÃO contém `--context`:**
+📄 **Fonte: Blueprint Completo** (`iabank/BLUEPRINT_ARQUITETURAL.md` - $BLUEPRINT_LINES linhas)
+
+Delegue para o subagent "agv-scaffolder" a tarefa de executar o Alvo $1 completo baseado no:
+- Blueprint Completo: `iabank/BLUEPRINT_ARQUITETURAL.md`
+
+**Se comando contém `--context`:**
+🎯 **Fonte: Contexto Extraído** (`contextos-extraidos/contexto-alvo-$1.md` - $CONTEXT_LINES linhas)  
+📊 **Redução de contexto:** $BLUEPRINT_LINES → $CONTEXT_LINES linhas
+
+Delegue para o subagent "agv-scaffolder" a tarefa de executar o Alvo $1 completo baseado no:
+- Contexto Extraído: `contextos-extraidos/contexto-alvo-$1.md`
 
 ### Etapa 2: Validação Automática Profunda
 
