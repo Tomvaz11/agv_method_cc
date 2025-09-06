@@ -44,7 +44,7 @@ Para cada alvo definido na ordem, determinar status:
 **❌ BLOQUEADO** - Dependências não atendidas
 
 ### Etapa 4: Análise de Fases de Teste
-Verificar status das fases T1-T8:
+Verificar status das fases T1-TN:
 - T1: Base Multi-Tenancy
 - T2: Fluxo de Autenticação  
 - T3: CRUD de Clientes
@@ -82,7 +82,7 @@ Verificar status das fases T1-T8:
 
 **...e assim por diante para todos os módulos**
 
-### Fases de Teste (T1-T8)
+### Fases de Teste (T1-TN)
 - Quais fases podem ser executadas agora
 - Fases bloqueadas por dependências
 - Próxima fase recomendada

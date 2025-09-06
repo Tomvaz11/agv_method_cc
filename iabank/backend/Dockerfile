@@ -5,6 +5,7 @@ ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PIP_NO_CACHE_DIR=1
 ENV PIP_DISABLE_PIP_VERSION_CHECK=1
+ENV PYTHONPATH=src
 
 # Set work directory
 WORKDIR /app
@@ -29,7 +30,7 @@ ENV POETRY_NO_INTERACTION=1 \
 COPY pyproject.toml poetry.lock* ./
 
 # Install dependencies
-RUN poetry install --no-dev && rm -rf $POETRY_CACHE_DIR
+RUN poetry install --only=main --no-root && rm -rf $POETRY_CACHE_DIR
 
 # Copy project
 COPY . .
@@ -48,4 +49,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD curl -f http://localhost:8000/health/ || exit 1
 
 # Run the application
-CMD ["poetry", "run", "python", "src/manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["poetry", "run", "python", "manage.py", "runserver", "0.0.0.0:8000"]

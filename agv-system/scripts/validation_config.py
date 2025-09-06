@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-AGV Context Extractor - Entry point para extração de contexto
+Validation Config Script - Wrapper para sistema de configuração de validação
+Gerencia profiles e configurações do sistema de validação
 """
 
 import sys
@@ -10,7 +11,7 @@ from pathlib import Path
 # Adicionar src ao path para imports
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-from agv_system.agv_context_extractor import main
+from agv_system.validation_config import main
 
 if __name__ == "__main__":
     main()

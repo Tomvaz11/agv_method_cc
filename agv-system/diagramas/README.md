@@ -25,14 +25,14 @@ Esta pasta contém a documentação visual completa do sistema AGV v5.0 desenvol
 - 🎭 ValidatorGenerator como dispatcher mestre
 - 🏗️ ScaffoldGenerator (200+ validações)
 - 🎯 TargetGenerator com inferência inteligente (80+ validações)
-- 🔗 IntegrationGenerator para T1-T8 (40+ validações)
+- 🔗 IntegrationGenerator para T1-TN (40+ validações)
 - 🔄 EvolutionGenerator para F7 (60+ validações)
 
 ### 🤖 [Integração com Subagents](./integracao-subagents.md)
 **Ecossistema completo de subagents**
 - 🏗️ agv-scaffolder (Alvo 0: Setup)
 - ⚙️ agv-implementor (Alvos 1-N: Features)
-- 🔗 agv-integrator-tester (T1-T8: Integração)
+- 🔗 agv-integrator-tester (T1-TN: Integração)
 - 🔄 agv-evolucionista (F7: Evolução)
 - 📊 agv-uat-generator (Cenários UAT)
 - 🔍 agv-uat-translator (Testes Automatizados)

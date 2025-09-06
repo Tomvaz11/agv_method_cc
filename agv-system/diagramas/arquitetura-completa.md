@@ -20,7 +20,7 @@ graph TB
             subgraph "SUBAGENTS ESPECIALIZADOS"
                 SA1[agv-scaffolder<br/>Alvo 0: Setup Projeto]
                 SA2[agv-implementor<br/>Alvos 1-N: Features]  
-                SA3[agv-integrator-tester<br/>Testes Integração T1-T8]
+                SA3[agv-integrator-tester<br/>Testes Integração T1-TN]
                 SA4[agv-evolucionista<br/>Manutenção & Evolução]
                 SA5[agv-uat-generator<br/>Cenários UAT]
                 SA6[agv-uat-translator<br/>Testes Automatizados]

@@ -18,22 +18,14 @@ Primeiro, vou extrair do Blueprint apenas as seções relevantes para o setup in
 - Configurações de Ambiente (pyproject.toml, package.json, docker-compose.yml)
 - Estrutura de Testes (diretórios e arquivos base)
 
-### Etapa 1.2: Geração Automática do Validador PROFISSIONAL
+### Etapa 1.2: Sistema Automático de Validação v3.0 - NOVA ARQUITETURA MODULAR
 
-Primeiro, gero automaticamente um validador PROFISSIONAL específico para este Blueprint:
+O sistema agora usa ValidatorGenerator v3.0 com arquitetura modular avançada:
 
-```bash
-python agv-system/scripts/agv-validate BLUEPRINT_ARQUITETURAL.md
-```
-
-Este comando irá:
-
-- Analisar o Blueprint arquitetural com parser avançado e inteligente
-- Extrair especificações complexas (modelos Django, multi-tenancy, dependências com versões)
-- Gerar validações profundas de conteúdo (não só existência de arquivos)
-- Criar validações específicas para modelos, configurações e dependências
-- Gerar um `agv-system/agv_system/validate_scaffold.py` de NÍVEL PROFISSIONAL (67+ validações)
-- Incluir validações por categoria: STRUCTURE, CONTENT, MODELS, DEPENDENCIES, API
+- **Geração Automática**: ValidatorGenerator cria validador customizado por Blueprint
+- **67+ Validações Especializadas**: Sistema modular com generators específicos  
+- **Profiles Configuráveis**: development (65%), production (85%), architecture_review (95%)
+- **Integração Total**: Automação completa pós-scaffold sem intervenção manual
 
 ### Etapa 1.3: Delegação para AGV-BaselineFoundation
 
@@ -67,13 +59,14 @@ echo "Threshold ativo: $CURRENT_THRESHOLD"
 
 ## Processo de Execução
 
-### Executar Geração do Validador PROFISSIONAL
+### Fluxo Automático Integrado - ValidatorGenerator v3.0
 
-Primeiro, execute o ValidatorGenerator PRO para criar validador de nível profissional:
+O sistema está **100% automatizado**. O hook pós-scaffold executa automaticamente:
 
-```bash
-python agv-system/scripts/agv-validate BLUEPRINT_ARQUITETURAL.md
-```
+1. **ValidatorGenerator v3.0**: Gera validador customizado por Blueprint
+2. **Validação Profunda**: 67+ verificações especializadas
+3. **Sistema de Pontuação**: Baseado em profiles configuráveis
+4. **Aprovação/Rejeição**: Automática baseada em threshold ativo
 
 ### Executar Scaffold
 

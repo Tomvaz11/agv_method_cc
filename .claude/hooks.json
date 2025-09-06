@@ -5,13 +5,8 @@
       "match": {
         "prompt_contains": "/agv:implement"
       },
-      "command": "python agv-system/scripts/agv-context",
-      "description": "Extrai contexto focado antes da implementação AGV",
-      "env": {
-        "TARGET": "$EXTRACTED_TARGET",
-        "BLUEPRINT_PATH": "BLUEPRINT_ARQUITETURAL.md",
-        "ORDER_PATH": "ORDEM_IMPLEMENTACAO.md"
-      }
+      "command": "echo 'Contexto será extraído via agv-context-analyzer durante execução'",
+      "description": "Preparação para implementação AGV com contexto de qualidade máxima"
     },
     {
       "event": "PreToolUse",
@@ -19,12 +14,8 @@
         "tool": "Task",
         "prompt_contains": "agv-implementor"
       },
-      "command": "python agv-system/scripts/agv-context",
-      "description": "Injeta contexto focado antes da execução do implementor",
-      "env": {
-        "TARGET": "$EXTRACTED_TARGET",
-        "INJECTION_MODE": "inject"
-      }
+      "command": "echo 'Contexto de qualidade máxima será extraído pelo agv-context-analyzer'",
+      "description": "Preparação para contexto focado de alta qualidade"
     },
     {
       "event": "PostToolUse",
@@ -67,14 +58,8 @@
       "match": {
         "prompt_contains": "/agv:test-integration"
       },
-      "command": "python agv-system/scripts/agv-context",
-      "description": "Extrai contexto para testes de integração",
-      "env": {
-        "TARGET": "$EXTRACTED_TARGET",
-        "BLUEPRINT_PATH": "BLUEPRINT_ARQUITETURAL.md",
-        "ORDER_PATH": "ORDEM_IMPLEMENTACAO.md",
-        "CONTEXT_TYPE": "integration_test"
-      }
+      "command": "echo 'Contexto para testes será extraído via agv-context-analyzer'",
+      "description": "Preparação para testes de integração com contexto focado"
     },
     {
       "event": "UserPromptSubmit",
@@ -109,12 +94,17 @@
       }
     },
     {
+      "event": "UserPromptSubmit",
+      "match": {
+        "prompt_contains": "/agv:uat-generate"
+      },
+      "command": "echo 'Contexto para UAT será extraído via agv-context-analyzer durante execução'",
+      "description": "Preparação para geração de cenários UAT com contexto focado"
+    },
+    {
       "event": "SessionEnd",
-      "command": "python agv-system/scripts/agv-context",
-      "description": "Limpeza de arquivos temporários AGV",
-      "env": {
-        "INJECTION_MODE": "cleanup"
-      }
+      "command": "echo 'Sistema AGV v5.0 - Sessão finalizada com contexto de qualidade máxima'",
+      "description": "Finalização de sessão AGV"
     }
   ]
 }

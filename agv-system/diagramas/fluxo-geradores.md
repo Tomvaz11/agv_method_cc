@@ -13,7 +13,7 @@ graph TB
             subgraph TYPES["TIPOS DE VALIDAÇÃO"]
                 T1[scaffold<br/>Alvo 0]
                 T2[target<br/>Alvos 1-N]  
-                T3[integration<br/>T1-T8]
+                T3[integration<br/>T1-TN]
                 T4[evolution<br/>F7]
             end
         end
@@ -55,7 +55,7 @@ graph TB
             end
         end
         
-        subgraph INTEGRATION["INTEGRATION GENERATOR (T1-T8)"]
+        subgraph INTEGRATION["INTEGRATION GENERATOR (T1-TN)"]
             IG[IntegrationGenerator<br/>Testes Integração]
             
             IG1[Flow Rules<br/>Entre Módulos]
@@ -168,7 +168,7 @@ python validator_generator.py BLUEPRINT.md evolution
 #### **Tipos de Validação Suportados:**
 - **`scaffold`** → ScaffoldGenerator (Alvo 0)
 - **`target`** → TargetGenerator (Alvos 1-N)
-- **`integration`** → IntegrationGenerator (T1-T8)
+- **`integration`** → IntegrationGenerator (T1-TN)
 - **`evolution`** → EvolutionGenerator (F7)
 
 ---
@@ -221,7 +221,7 @@ Sistema que distribui automaticamente funcionalidades por alvo:
 
 ---
 
-### **IntegrationGenerator (T1-T8)**
+### **IntegrationGenerator (T1-TN)**
 Gerador para validação de testes de integração entre módulos:
 
 #### **Fases de Integração:**

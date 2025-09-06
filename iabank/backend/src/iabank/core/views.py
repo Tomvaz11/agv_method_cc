@@ -1,14 +1,15 @@
 """
 Core views for IABANK - Health check and utility endpoints.
 """
+import logging
+
+from django.core.cache import cache
+from django.db import connection
+from django.utils import timezone
+from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
-from rest_framework import status
-from django.utils import timezone
-from django.db import connection
-from django.core.cache import cache
-import logging
 
 logger = logging.getLogger(__name__)
 
@@ -18,7 +19,7 @@ logger = logging.getLogger(__name__)
 def health_check(request):
     """
     Health check endpoint that validates system components.
-    
+
     Returns:
     - 200 OK if all services are healthy
     - 503 Service Unavailable if any critical service is down
@@ -29,9 +30,9 @@ def health_check(request):
         'services': {},
         'version': '1.0.0'
     }
-    
+
     overall_healthy = True
-    
+
     # Check database connectivity
     try:
         with connection.cursor() as cursor:
@@ -47,7 +48,7 @@ def health_check(request):
             'error': str(e)
         }
         overall_healthy = False
-    
+
     # Check Redis/Cache connectivity
     try:
         cache.set('health_check', 'test', timeout=10)
@@ -66,12 +67,12 @@ def health_check(request):
             'error': str(e)
         }
         # Cache is not critical, so don't mark overall as unhealthy
-    
+
     # Set overall status
     if not overall_healthy:
         health_status['status'] = 'unhealthy'
         return Response(health_status, status=status.HTTP_503_SERVICE_UNAVAILABLE)
-    
+
     return Response(health_status, status=status.HTTP_200_OK)
 
 
@@ -80,7 +81,7 @@ def health_check(request):
 def ready_check(request):
     """
     Readiness check endpoint for Kubernetes/container orchestration.
-    
+
     This is a simpler check that just verifies the application is running.
     """
     return Response({

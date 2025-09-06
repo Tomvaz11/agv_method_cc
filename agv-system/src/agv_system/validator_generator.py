@@ -70,7 +70,7 @@ class ModularValidatorGenerator:
     VALIDATION_TYPES = {
         'scaffold': 'Validação completa de scaffold (Alvo 0)',
         'target': 'Validação de alvo específico (Alvos 1-N)',
-        'integration': 'Validação de teste de integração (T1-T8)',
+        'integration': 'Validação de teste de integração (T1-TN)',
         'evolution': 'Validação de evolução e manutenção (F7-Evolucionista)'
     }
     

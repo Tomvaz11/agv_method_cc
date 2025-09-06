@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-IntegrationGenerator - Gerador especializado para validação de paradas de testes de integração (T1-T8).
+IntegrationGenerator - Gerador especializado para validação de paradas de testes de integração (T1-TN).
 Foco em validar colaboração entre módulos, interfaces e integrações do sistema.
 """
 
@@ -16,7 +16,7 @@ from core.blueprint_parser import ProjectSpecs
 
 
 class IntegrationGenerator(BaseGenerator):
-    """Gerador especializado para validação de testes de integração (T1-T8)."""
+    """Gerador especializado para validação de testes de integração (T1-TN)."""
     
     def __init__(self, specs: ProjectSpecs, integration_phase: str, integration_context: Dict[str, Any] = None):
         super().__init__(specs)

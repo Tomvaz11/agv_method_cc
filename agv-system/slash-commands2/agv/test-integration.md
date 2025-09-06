@@ -1,9 +1,9 @@
 ---
-description: "Executa testes de integração para fases T1-T8 usando AGV-Integrator-Tester especializado"
+description: "Executa testes de integração para fases T1-TN usando AGV-Integrator-Tester especializado"
 allowed_tools: ["Task", "Read", "Write", "Edit", "Bash"]
 ---
 
-# AGV Test Integration - Testes de Integração T1-T8
+# AGV Test Integration - Testes de Integração T1-TN
 
 Implementa testes de integração robustos para a fase **T$1** seguindo os cenários definidos na Ordem de Implementação.
 
@@ -41,21 +41,25 @@ Executar os testes criados para validar:
 - Cenários de sucesso e falha
 - Conformidade com especificações
 
-## Fases de Teste Disponíveis
+## Fases de Teste Dinâmicas
 
+As fases T1-TN são extraídas dinamicamente do Blueprint de cada projeto específico:
+
+**Exemplo do IABANK:**
 - **T1**: Validação da Base Multi-Tenancy (iabank.core)
 - **T2**: Validação do Fluxo de Autenticação (iabank.users) 
 - **T3**: CRUD de Clientes com Segurança Multi-Tenant (iabank.customers)
 - **T4**: Fluxo Central de Criação de Empréstimo (iabank.operations)
 - **T5**: Validação da Integração Financeira (iabank.finance)
 - **T6**: Validação dos Requisitos Não-Funcionais (observabilidade)
-- **T7**: Validação da Biblioteca de Componentes UI (frontend shared/entities)
-- **T8**: Fluxo de Usuário End-to-End (frontend completo)
+
+**Nota**: Projetos diferentes podem ter números diferentes de fases (T1-T4, T1-T12, etc.)
 
 ## Argumentos
-- **$1**: Número da fase de teste (obrigatório: 1-8)
+- **$1**: Número da fase de teste (varia por projeto)
   - Exemplo: `/agv:test-integration 1` (para testes T1)
   - Exemplo: `/agv:test-integration 4` (para testes T4)
+  - **Nota**: O número máximo de fases depende do Blueprint do projeto
 
 ## Resultado Esperado
 - Testes de integração completos para a fase especificada

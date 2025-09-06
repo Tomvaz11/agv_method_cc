@@ -18,7 +18,7 @@ flowchart TB
     %% SUBAGENTS LAYER
     SA1[🏗️ agv-scaffolder<br/>Alvo 0: Setup<br/>Write, Bash, Glob]
     SA2[⚡ agv-implementor<br/>Alvos 1-N<br/>Write, Edit, Read]
-    SA3[🔬 agv-integrator-tester<br/>Integração T1-T8<br/>Edit, Write, Bash]
+    SA3[🔬 agv-integrator-tester<br/>Integração T1-TN<br/>Edit, Write, Bash]
     SA4[🔧 agv-evolucionista<br/>Bugs & Refactoring<br/>Multi Tools]
     SA5[📝 agv-uat-generator<br/>UAT Scenarios<br/>Read, Write]
     SA6[🔄 agv-uat-translator<br/>UAT → Auto Tests<br/>Read, Write, Edit]
@@ -154,7 +154,7 @@ flowchart TB
 - **Context:** Reduzido 80% via `inject_context.py`
 - **Validação:** `validate_target_N.py` (80+ validações)
 
-#### **🔬 agv-integrator-tester (T1-T8)**
+#### **🔬 agv-integrator-tester (T1-TN)**
 - **Responsabilidade:** Testes de integração robustos
 - **Tools:** Edit, Write, Bash, Read
 - **Foco:** Fluxos entre módulos, APIs, DB integrity

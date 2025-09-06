@@ -17,12 +17,12 @@ class Tenant(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Criado em")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Atualizado em")
     is_active = models.BooleanField(default=True, verbose_name="Ativo")
-    
+
     class Meta:
         verbose_name = "Tenant"
         verbose_name_plural = "Tenants"
         ordering = ['-created_at']
-    
+
     def __str__(self):
         return self.name
 
@@ -30,10 +30,10 @@ class Tenant(models.Model):
 class BaseTenantModel(models.Model):
     """
     Abstract base model for all tenant-aware models.
-    
+
     This ensures that all data is isolated by tenant,
     establishing the foundation for multi-tenant architecture.
-    
+
     All models that inherit from this will automatically:
     - Have tenant isolation
     - Include audit fields (created_at, updated_at)
@@ -53,11 +53,11 @@ class BaseTenantModel(models.Model):
         auto_now=True,
         verbose_name="Atualizado em"
     )
-    
+
     class Meta:
         abstract = True
         ordering = ['-created_at']
-    
+
     def save(self, *args, **kwargs):
         """
         Override save to ensure proper tenant handling.
@@ -71,13 +71,13 @@ class BaseManager(models.Manager):
     """
     Base manager that provides tenant-aware queries.
     """
-    
+
     def for_tenant(self, tenant):
         """
         Filter queryset by tenant.
         """
         return self.filter(tenant=tenant)
-    
+
     def active(self):
         """
         Filter to only active records (if the model has is_active field).
@@ -91,7 +91,7 @@ class BaseModelMixin:
     """
     Mixin that provides common functionality for all models.
     """
-    
+
     def refresh_from_db_with_select_related(self, fields=None, **kwargs):
         """
         Refresh from database with optimized select_related.
@@ -108,7 +108,7 @@ class BaseModelMixin:
                     setattr(self, field.name, getattr(db_instance, field.name))
         else:
             super().refresh_from_db(fields=fields, **kwargs)
-    
+
     def to_dict(self):
         """
         Convert model instance to dictionary.
