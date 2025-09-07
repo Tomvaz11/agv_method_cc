@@ -90,14 +90,18 @@ sudo apt install ripgrep
 ### **🏗️ PASSO 1: Setup do Projeto**
 
 ```bash
-/agv:scaffold
+/agv:scaffold           # Usa Blueprint completo (padrão) - 1087 linhas
+/agv:scaffold --context # Usa contexto extraído focado - ~124 linhas
 ```
 
 **O que acontece:**
-- AGV-Scaffolder cria estrutura completa do projeto
-- ValidatorGenerator v3.0 executa validações profissionais
-- Sistema de scoring aprova/rejeita baseado em conformidade (≥95%)
-- Contexto otimizado: apenas seções de setup (~100 linhas vs 1000+)
+- **Contagem automática**: Sistema conta linhas reais dos arquivos
+- **AGV-Scaffolder**: Cria estrutura completa do projeto
+- **Fonte transparente**: Mostra exatamente qual fonte está sendo usada:
+  - 📄 **Fonte: Blueprint Completo** (iabank/BLUEPRINT_ARQUITETURAL.md - 1087 linhas)
+  - 🎯 **Fonte: Contexto Extraído** (contextos-extraidos/contexto-alvo-0.md - 124 linhas)
+- **ValidatorGenerator v3.0**: Executa validações profissionais
+- **Sistema de scoring**: Aprova/rejeita baseado em conformidade (≥95%)
 - **Resultado**: Projeto pronto com validação automática
 
 ### **💻 PASSO 2: Implementação de Alvos**
@@ -200,9 +204,10 @@ Subagents são **versões especializadas do Claude** criadas no Claude Code. Cad
 
 ```bash
 # Setup e Implementação
-/agv:scaffold              # Alvo 0: Estrutura completa
-/agv:implement <número>    # Implementa alvo específico
-/agv:status               # Progresso vs Ordem
+/agv:scaffold                 # Alvo 0: Blueprint completo (padrão - 1087 linhas)
+/agv:scaffold --context       # Alvo 0: Contexto extraído (124 linhas, 88% redução)
+/agv:implement <número>       # Implementa alvo específico
+/agv:status                  # Progresso vs Ordem
 
 # Testes e Qualidade  
 /agv:test-integration <TX> # Testes T1-TN nas paradas
@@ -219,6 +224,12 @@ Subagents são **versões especializadas do Claude** criadas no Claude Code. Cad
 1. **Você digita**: `/agv:implement 7`
 2. **Sistema processa**: Extrai contexto, chama subagent, valida
 3. **Resultado**: Implementação completa e validada
+
+### **Sistema de Contagem de Linhas em Tempo Real:**
+O AGV v5.0 conta automaticamente as linhas dos arquivos em tempo de execução:
+- **Blueprint Completo**: Mostra número exato (ex: 1087 linhas)
+- **Contexto Extraído**: Calcula redução real (ex: 1087 → 124 = 88.6% redução)
+- **Transparência Total**: Você sempre sabe qual fonte está sendo processada
 
 ---
 
@@ -291,8 +302,10 @@ Subagents são **versões especializadas do Claude** criadas no Claude Code. Cad
 ### **Exemplo 2: Projeto IABANK Completo**
 
 ```bash
-# Setup inicial
-/agv:scaffold
+# Setup inicial (escolha a fonte)
+/agv:scaffold           # Blueprint completo (1087 linhas - implementação robusta)
+/agv:scaffold --context # Contexto focado (124 linhas - implementação ágil)
+# → 📄 Fonte: Blueprint Completo (1087 linhas)
 # → Estrutura Django + React + Docker + validação
 
 # Implementar modelos base
@@ -384,6 +397,23 @@ class Customer(BaseTenantModel):
 ### **Problema 5: Windows encoding**
 **Erro**: UnicodeDecodeError
 **Solução**: Sistema já corrigido com UTF-8 encoding automático
+
+### **Problema 6: AGV-Context-Analyzer não salva arquivo**
+**Erro**: Contexto gerado mas arquivo não criado
+**Causa Raiz**: Ferramenta `Write` ausente na configuração do agente
+**Solução**: Verificar se agv-context-analyzer tem `tools: Read, Write, Grep, Glob`
+
+### **Problema 7: Não sei qual fonte está sendo usada**
+**Situação**: Quero saber se está usando Blueprint ou contexto
+**Solução**: O sistema sempre mostra:
+- 📄 **Fonte: Blueprint Completo** (1087 linhas) ou
+- 🎯 **Fonte: Contexto Extraído** (124 linhas)
+
+### **Problema 8: Escolher entre Blueprint vs Contexto**
+**Dúvida**: Quando usar cada opção?
+**Recomendação**:
+- **Blueprint completo** (`/agv:scaffold`): Implementação robusta, primeira vez
+- **Contexto extraído** (`/agv:scaffold --context`): Implementação ágil, iterações
 
 ---
 

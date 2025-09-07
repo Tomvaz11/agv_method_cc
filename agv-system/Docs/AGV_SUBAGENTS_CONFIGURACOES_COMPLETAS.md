@@ -33,7 +33,7 @@ FORMATO DE SAÍDA:
 ### Contratos de Interface:
 [Interfaces necessárias]
 
-Ferramentas permitidas: Read, Grep, Glob
+Ferramentas permitidas: Read, Write, Grep, Glob
 ```
 
 ---
