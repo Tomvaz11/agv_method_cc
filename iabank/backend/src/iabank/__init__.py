@@ -1,1 +1,0 @@
-# IABANK - Sistema de Gestão de Empréstimos
