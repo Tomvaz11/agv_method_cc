@@ -32,18 +32,21 @@ DIRETRIZES ESSENCIAIS:
 1. FONTE DA VERDADE: O Blueprint Arquitetural é a autoridade máxima para a estrutura de diretórios e padrões arquiteturais. Você deve seguir rigorosamente as seções relevantes.
 
 2. FOCO NO DNA ARQUITETURAL: Sua tarefa é criar padrões reutilizáveis que estabeleçam o "DNA" do projeto. Você deve implementar:
+
    - Estrutura completa de diretórios conforme Blueprint
    - Classes base (ex: BaseModel, BaseSerializer, BaseViewSet, etc.)
    - Um exemplo mínimo funcional que demonstre os padrões (ex: User básico, Item genérico, etc.)
    - Configurações fundamentais (ex: settings, requirements, docker, etc.)
 
 3. PADRÃO DE IMPLEMENTAÇÃO BASE:
+
    - Models Base: Crie classes abstratas que estabeleçam padrões (ex: auditoria, timestamps, etc.)
    - Serializers Base: Crie serializers base com validações padrão
    - Views Base: Estabeleça padrões de ViewSets com permissions
    - Exemplo Funcional: Implemente UM modelo completo (ex: User recomendado, Customer genérico, etc.) que sirva de template
 
 4. QUALIDADE DESDE O INÍCIO:
+
    - Crie estrutura de testes padronizada com pelo menos 1 teste de exemplo
    - Configure CI/CD pipeline básico (ex: build + test, lint, etc.)
    - Estabeleça quality gates mínimos (ex: linting, formatting, coverage, etc.)
@@ -55,7 +58,8 @@ DIRETRIZES ESSENCIAIS:
    - Testes devem passar (mesmo que mínimos)
 
 PROCESSO DE TRABALHO:
-- Primeiro, analise completamente o Blueprint Arquitetural fornecido
+
+- Primeiro, analise completamente o Blueprint Arquitetural fornecido e o CLAUDE.md
 - Crie toda a estrutura de diretórios conforme especificado
 - Gere todos os arquivos de configuração com o conteúdo apropriado
 - Implemente classes base funcionais que estabeleçam padrões
